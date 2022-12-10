@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS ticket CASCADE;
+
+CREATE TABLE ticket (
+    id serial CONSTRAINT id PRIMARY KEY,    
+    price DOUBLE PRECISION
+);

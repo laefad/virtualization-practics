@@ -1,0 +1,4 @@
+[submodule "Pr4Code"]
+    path = Практическая работа 4/code
+    url = https://github.com/laefad/project.git
+    branch = statistics

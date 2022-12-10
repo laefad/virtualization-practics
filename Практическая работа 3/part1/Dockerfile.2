@@ -1,0 +1,20 @@
+FROM alpine:latest
+
+ENV MESSAGE "Hello from Dockerfile 2"
+
+EXPOSE 80
+
+RUN apk update && apk upgrade && apk add python3 
+
+WORKDIR /workdir
+COPY example.txt example.txt
+ADD changableTxt.txt cTxt.txt
+RUN echo "new text" > cTxt.txt
+
+RUN mkdir myvol
+VOLUME /workdir/myvol
+RUN echo "$MESSAGE" > myvol/greeting.txt
+
+ENTRYPOINT python3 -m http.server 
+
+ONBUILD ADD /workdir /workdir
